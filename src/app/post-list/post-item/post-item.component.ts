@@ -7,14 +7,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PostItemComponent implements OnInit {
 
-  public isLoved: boolean;
-
   @Input() post;
 
   constructor() { }
 
   ngOnInit() {
-    this.getLoved();
     this.onLikeClick();
     this.onDislikeClick();
   }
@@ -30,14 +27,6 @@ export class PostItemComponent implements OnInit {
     this.post.loveIts -= 1;
     console.log(this.post.loveIts);
     return this.post.loveIts;
-  }
-
-  getLoved() {
-    if (this.post.loveIts > 0) {
-      return 'alert-success';
-    } else if (this.post.loveIts < 0) {
-      return 'alert-warning';
-    }
   }
 
 }
