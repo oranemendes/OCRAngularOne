@@ -1,3 +1,27 @@
-<p>
-  post-list works!
-</p>
+<div class="content-page">
+    <div class="list-group">
+      <div class="d-flex w-100 justify-content-between">
+        <h1>List posts</h1>
+      </div>
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <a
+          href="#"
+          class="list-group-item clearfix"
+          *ngFor="let post of posts">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ post.title }}</h5>
+              <small>{{ post.created_at }}</small>
+            </div>
+            <p class="mb-1">{{ post.content }}</p>
+            <span class="pull-right">
+        <img src="{{ post.imagePath }}" alt="" class="img-responsive" style="max-height: 200px;">
+            </span>
+            <div class="row>">
+              <button type="button" class="btn btn-success">Love it !</button>
+              <button type="button" class="btn btn-danger">Don't love it !</button>
+            </div>
+        </a>
+      </div>
+      <app-post-list-item></app-post-list-item>
+    </div>
+</div>
