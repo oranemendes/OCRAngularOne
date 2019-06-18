@@ -7,6 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PostItemComponent implements OnInit {
 
+  public isLoved: boolean;
+
   @Input() post;
 
   constructor() { }
@@ -32,10 +34,10 @@ export class PostItemComponent implements OnInit {
 
   getLoved() {
     if (this.post.loveIts > 0) {
-      return true === this.post.isLoved;
+      return 'alert-success';
     } else if (this.post.loveIts < 0) {
-      return false === this.post.isLoved;
+      return 'alert-warning';
     }
-
   }
+
 }

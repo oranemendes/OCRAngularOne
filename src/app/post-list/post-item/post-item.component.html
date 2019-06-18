@@ -1,7 +1,4 @@
-<div [ngClass]="{
-                'alert-success':isLoved === true,
-                'alert-danger':isLoved === false
-                }">
+<div [class.alert-success]="post.loveIts > 0" [class.alert-danger]="post.loveIts < 0">
   <div class="d-flex w-100 justify-content-between">
     <h5 class="mb-1">{{ post.title }}</h5>
     <small>{{ post.created_at }}</small>

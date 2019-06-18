@@ -7,7 +7,6 @@ import {Post} from '../../post.model';
   styleUrls: ['./post-list-item.component.css']
 })
 export class PostListItemComponent implements OnInit {
-  public isLoved: boolean;
 
   posts: Post[] = [
     new Post('Premier post', 'Un sourire coûte moins cher que l"\électricité, mais donne autant de lumière. - Abbé Pierre',
