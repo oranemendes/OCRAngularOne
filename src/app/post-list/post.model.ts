@@ -7,13 +7,13 @@ export class Post {
   public created_at: Date;
 
 
-  constructor(id: number, title: string, content: string, imagePath: string, loveIts: number, created_at: Date) {
+  constructor(id: number | null, title: string, content: string, imagePath: string) {
     this.id = id;
     this.title = title;
     this.content = content;
     this.imagePath = imagePath;
-    this.loveIts = loveIts;
-    this.created_at = created_at;
+    this.loveIts = 0;
+    this.created_at = new Date();
   }
 }
 

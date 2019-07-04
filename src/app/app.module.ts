@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 
 import {RouterModule, Routes} from '@angular/router';
 import { NewArticleComponent } from './new-article/new-article.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostListComponent},
@@ -28,6 +29,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PostService],
