@@ -3,6 +3,7 @@
       <div class="d-flex w-100 justify-content-between">
         <h1>List posts</h1>
         <hr>
+        <button type="button" class="btn btn-success" (click)="onFetch()">Récupérer depuis le serveur</button>
         <button type="button" class="btn btn-primary" (click)="onSave()">Enregistrer sur le serveur</button>
       </div>
         <app-post-list-item></app-post-list-item>
