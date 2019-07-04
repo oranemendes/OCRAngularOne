@@ -2,7 +2,7 @@ import {Post} from '../post-list/post.model';
 import {Subject} from 'rxjs';
 
 export class PostService {
-  posts: Post[] = [
+  private posts: Post[] = [
     new Post(1,'Premier post', 'Un sourire coûte moins cher que l"\électricité, mais donne autant de lumière. - Abbé Pierre',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Abb%C3%A9_Pierre_%281955%29.jpg/220px-Abb%C3%A9_Pierre_%281955%29.jpg'),
     new Post(2,'Second Post', 'Ne demeure pas dans le passé, ne rêve pas du futur, concentre ton esprit sur le moment présent. - Bouddha',
@@ -24,8 +24,12 @@ export class PostService {
     this.emitPosts();
   }
 
-  deleteOldArticle(i: number) {
-
+  deleteOldArticle(posts: Post) {
+    const index: number = this.posts.indexOf(posts);
+    if (index !== -1) {
+      this.posts.splice(index, 1);
+      this.emitPosts();
+    }
   }
 
 }
