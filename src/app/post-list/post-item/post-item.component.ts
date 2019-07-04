@@ -22,13 +22,11 @@ export class PostItemComponent implements OnInit {
 
   onLikeClick() {
     this.post.loveIts += 1;
-    console.log(this.post.loveIts);
     return this.post.loveIts;
   }
 
   onDislikeClick() {
     this.post.loveIts -= 1;
-    console.log(this.post.loveIts);
     return this.post.loveIts;
   }
 
