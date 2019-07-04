@@ -1,6 +1,9 @@
 import {Post} from '../post-list/post.model';
 import {Subject} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
+@Injectable()
 export class PostService {
   private posts: Post[] = [
     new Post(1,'Premier post', 'Un sourire coûte moins cher que l"\électricité, mais donne autant de lumière. - Abbé Pierre',
@@ -14,6 +17,8 @@ export class PostService {
     ];
 
   postSubject = new Subject<Post[]>();
+
+  constructor(private httpClient: HttpClient) {}
 
   emitPosts() {
     this.postSubject.next(this.posts.slice());
@@ -30,6 +35,19 @@ export class PostService {
       this.posts.splice(index, 1);
       this.emitPosts();
     }
+  }
+
+  savePostsToServer() {
+    this.httpClient
+      .put('https://ocr-angular-26c07.firebaseio.com/posts.json', this.posts)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
   }
 
 }

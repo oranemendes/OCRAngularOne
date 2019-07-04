@@ -22,16 +22,19 @@ export class PostItemComponent implements OnInit {
 
   onLikeClick() {
     this.post.loveIts += 1;
+    this.postService.savePostsToServer();
     return this.post.loveIts;
   }
 
   onDislikeClick() {
     this.post.loveIts -= 1;
+    this.postService.savePostsToServer();
     return this.post.loveIts;
   }
 
   onDelete() {
     this.postService.deleteOldArticle(this.post);
+    this.postService.savePostsToServer();
   }
 
 }

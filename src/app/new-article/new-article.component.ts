@@ -38,6 +38,7 @@ export class NewArticleComponent implements OnInit {
       formValue.image
     );
     this.postService.addNewArticle(newPost);
+    this.postService.savePostsToServer();
     console.log('Article added !');
     this.router.navigate(['/posts']);
   }
